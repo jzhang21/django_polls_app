@@ -1,0 +1,42 @@
+{% load bootstrap4 %} 
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div class="container" style="text-align:center">
+
+<div class="jumbotron">
+  <h1 class="display-4"> {{ question.question_text }} </h1>
+  <p class="lead"> </p>
+  <hr class="my-4">
+  <br>
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+  {% csrf_token %}
+  {% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    <br>
+  {% endfor %}
+  <input type="submit" value="Vote">
+</form>
+
+</div>
+</div>
+
+<footer>
+<div class= "navbar navbar-inverse navbar-static-bottom" role="navigation">
+    <div class="navbar-text pull-left">
+    </div>
+    <div class= "navbar-text pull-right">
+<!-- Add in your social media / github links here -->
+        <a href="https://github.com/clarkdatalabs">
+            <i class="fa fa-github-square fa-2x"></i></a>
+    </div>
+    <!--Below is the copyright information for the site. You can fill in your own here.-->
+    <div class="navbar-text pull-left">
+    &copy; Jared Zhang, 2019
+    </div>
+</div>	
+</footer>
