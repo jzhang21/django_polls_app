@@ -1,0 +1,7 @@
+These were sources I used that weren't on my written assignment:
+
+https://gist.github.com/kshepp/98124b932a6f3dbd95e9
+
+https://getbootstrap.com/docs/4.0/components/breadcrumb/
+
+https://getbootstrap.com/docs/4.3/getting-started/download/
